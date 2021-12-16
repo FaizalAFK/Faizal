@@ -6,7 +6,7 @@ import csv
 import json
 
 st.sidebar.title('Pilih Fitur yang akan digunakan')
-option=st.sidebar.selectbox('pilih salah satu',('Jumlah Pertahun','Produksi Terbesar', 'Produksi Kumulatif', 'Data Pertahun'))
+option=st.sidebar.selectbox('pilih salah satu',('Jumlah Produksi Pertahun','Negara Dengan Produksi Terbesar', 'Produksi Kumulatif', 'Data Produksi Pertahun'))
 
 # inisiasi fungsi
 def csvFileToList():
@@ -237,9 +237,11 @@ if option == 'Jumlah Produksi Pertahun':
                st.text("Pada grafik jika kita menambahkan seluruh jumlah produksi.")
                st.text("maka akan diperoleh total %s yang dihasilkan" %getTotalProduksi(kodeNegara))
                st.text("oleh negara %s" %NamaNegara)
+          else:
+              st.text("Pada Negara %s tidak memiliki data produksi minyak."%NamaNegara) 
 
 # Soal Point B
-if option == ' Negara Dengan Produksi Terbesar':
+if option == 'Negara Dengan Produksi Terbesar':
     st.title("Negara dengan Produksi Minyak terbesar")
     jumlahNegara = st.slider('Berapa Negara :',2,countAmountNegara())
     pilihTahun = st.selectbox('Pilih Tahun', getAllTahun())
